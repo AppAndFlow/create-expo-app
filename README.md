@@ -26,7 +26,7 @@ Copy the configuration files located in the `template` directory →
 
 `copy .prettierrc`
 
-Replace your `scripts` and `jest` object inside `package.json` →
+Replace your `scripts` object inside `package.json` →
 
 ```json
 "scripts": {
@@ -34,19 +34,9 @@ Replace your `scripts` and `jest` object inside `package.json` →
   "prettier": "prettier --write './src/**/*'",
   "test": "jest",
   "tsc": "tsc --noEmit"
-},
-"jest": {
-  "moduleFileExtensions": ["js", "jsx", "ts", "tsx"],
-  "preset": "jest-expo",
-  "setupFiles": ["./src/jest/setup.ts"],
-  "testMatch": ["**/__tests__/**/*.ts?(x)"],
-  "transform": { "^.+\\.tsx?$": "ts-jest" },
-  "transformIgnorePatterns": ["node_modules/(?!react-native|touchable)/"]
 }
 ```
 
-Copy the jest setup file located in the `template/src/jest` directory →
-
-`copy setup.ts`
+Copy the Jest configuration file (`template/jest.config.js`) and setup file (`template/jest/setup.ts`)
 
 Complete the project directories/file structure so it matches the `template` directory →
