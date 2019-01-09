@@ -1,23 +1,24 @@
 {
+  "name": "create-expo-app",
+  "version": "1.0.0",
+  "description": "A somewhat opinionated way to create React Native apps using Expo",
+  "bin": {
+    "create-expo-app": "create-expo-app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AppAndFlow/create-expo-app.git"
+  },
+  "author": "Samuel Chamberland",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AppAndFlow/create-expo-app/issues"
+  },
+  "homepage": "https://github.com/AppAndFlow/create-expo-app#readme",
   "dependencies": {
     "commander": "^2.19.0",
-    "execa": "^1.0.0"
-  },
-  "devDependencies": {
-    "@types/expo": "^31.0.7",
-    "@types/jest": "^23.3.12",
-    "@types/react": "^16.7.18",
-    "@types/react-native": "^0.57.26",
-    "jest": "^23.6.0",
-    "jest-expo": "^32.0.0",
-    "jest-fetch-mock": "^2.1.0",
-    "prettier": "^1.15.3",
-    "react-native-testing-library": "^1.5.0",
-    "react-test-renderer": "^16.7.0",
-    "ts-jest": "^23.10.5",
-    "tslint": "^5.12.0",
-    "tslint-config-prettier": "^1.17.0",
-    "tslint-react": "^3.6.0",
-    "typescript": "^3.2.2"
+    "execa": "^1.0.0",
+    "fs-extra": "^7.0.1",
+    "ora": "^3.0.0"
   }
 }
