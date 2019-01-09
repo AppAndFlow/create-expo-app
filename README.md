@@ -31,7 +31,7 @@ Replace your `scripts` object inside `package.json` →
 }
 ```
 
-Add more dev dependencies
+Add more dev dependencies →
 
 `yarn add --dev jest jest-expo jest-fetch-mock ts-jest react-test-renderer react-native-testing-library`
 
@@ -48,6 +48,12 @@ Replace your `jest` object inside `package.json` →
 }
 ```
 
-Copy the jest setup file located in the `template/src/jest` directory
+Copy the jest setup file located in the `template/src/jest` directory →
 
 `copy setup.ts`
+
+Add even more dev dependencies →
+
+`yarn add --dev @types/expo @types/jest @types/react @types/react-native`
+
+Complete the project directories/file structure so it matches the `template` directory →
