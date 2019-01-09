@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "commander": "^2.19.0",
+    "execa": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/expo": "^31.0.7",
+    "@types/jest": "^23.3.12",
+    "@types/react": "^16.7.18",
+    "@types/react-native": "^0.57.26",
+    "jest": "^23.6.0",
+    "jest-expo": "^32.0.0",
+    "jest-fetch-mock": "^2.1.0",
+    "prettier": "^1.15.3",
+    "react-native-testing-library": "^1.5.0",
+    "react-test-renderer": "^16.7.0",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.2.2"
+  }
+}
