@@ -58,7 +58,6 @@ async function create(app) {
       path.resolve(currentDirectory, 'template'),
       path.resolve(targetDirectory),
     );
-    spinner.text = 'Editing scripts';
     // edit `package.json` to include our scripts
     const pkg = await fs.readJSON(
       path.resolve(targetDirectory, 'package.json'),
