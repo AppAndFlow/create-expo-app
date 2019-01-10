@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A somewhat opinionated way to create React Native apps using Expo",
   "bin": {
-    "create-expo-app": "create-expo-app.js"
+    "create-expo-app": "bin/create-expo-app.js"
   },
   "repository": {
     "type": "git",
