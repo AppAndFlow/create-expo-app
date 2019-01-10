@@ -1,23 +1,40 @@
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { AppLoading, Font } from 'expo';
 
-class App extends React.Component {
+import { fontsMap } from '../constants/fonts';
+import AppNavigator from './AppNavigator';
+
+interface State {
+  ready: boolean;
+}
+
+class App extends React.Component<{}, State> {
+  state = {
+    ready: false,
+  };
+
+  _loadResources = () => {
+    return Promise.all([
+      Font.loadAsync({
+        ...fontsMap,
+      }),
+    ]) as Promise<any>;
+  };
+
+  _handleFinish = () => {
+    this.setState({ ready: true });
+  };
+
   render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.tsx to start working on your app!</Text>
-      </View>
+    return this.state.ready ? (
+      <AppNavigator />
+    ) : (
+      <AppLoading
+        startAsync={this._loadResources}
+        onFinish={this._handleFinish}
+      />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default App;

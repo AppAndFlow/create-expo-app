@@ -9,15 +9,17 @@ const ora = require('ora');
 program
   .version('1.0.0')
   .usage('<app-name>')
-  .arguments('<app>')
-  .option('-s, --silent', 'scaffold app without printing to stdout')
-  .action(app => create(app))
+  .arguments('<app-name>')
+  .action(appName => create(appName))
   .parse(process.argv);
 
-const devDepencendies = [
+const dependencies = ['react-navigation'];
+const devDependencies = [
   '@types/expo',
   '@types/jest',
   '@types/react-native',
+  '@types/react-navigation',
+  '@types/react-test-renderer',
   '@types/react',
   'jest-expo',
   'jest-fetch-mock',
@@ -38,22 +40,20 @@ const pkgScripts = {
   tsc: 'tsc --noEmit',
 };
 
-async function create(app) {
+async function create(appName) {
   const spinner = ora('Creating Expo app');
 
   try {
-    const targetDirectory = path.resolve(process.cwd(), app);
     const currentDirectory = process.cwd();
+    const targetDirectory = path.resolve(process.cwd(), appName);
 
     spinner.start();
-    await execa('expo', ['init', '--yarn', '--template', 'blank', app]);
-    spinner.text =
-      'Installing devDependencies (e.g. typescript, tslint, prettier, jest, ...)';
-    await execa('yarn', ['add', '--dev', ...devDepencendies], {
+    await execa('expo', ['init', '--yarn', '--template', 'blank', appName]);
+    spinner.text = 'Installing dependencies and setting up project structure';
+    await execa('yarn', ['add', ...dependencies], { cwd: targetDirectory });
+    await execa('yarn', ['add', '--dev', ...devDependencies], {
       cwd: targetDirectory,
     });
-    spinner.text =
-      'Setting up project structure and creating configuration files';
     await fs.copy(
       path.resolve(currentDirectory, 'template'),
       path.resolve(targetDirectory),

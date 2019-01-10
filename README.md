@@ -15,5 +15,6 @@ create-expo-app <app-name>
 - TSLint
 - Prettier
 - Jest
+- React Navigation
 - react-native-testing-library
-- A minimal directories structure
+- A minimal app tree structure
