@@ -44,7 +44,6 @@ async function create(appName) {
   const spinner = ora('Creating Expo app');
 
   try {
-    const currentDirectory = process.cwd();
     const targetDirectory = path.resolve(process.cwd(), appName);
 
     spinner.start();
@@ -55,7 +54,7 @@ async function create(appName) {
       cwd: targetDirectory,
     });
     await fs.copy(
-      path.resolve(currentDirectory, 'template'),
+      path.resolve(__dirname, 'template'),
       path.resolve(targetDirectory),
     );
     // edit `package.json` to include our scripts
