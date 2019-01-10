@@ -5,7 +5,7 @@ A somewhat opinionated way to create React Native apps using Expo
 ## Usage
 
 ```sh
-create-expo-app <app-name>
+npx https://github.com/AppAndFlow/create-expo-app <app-name>
 ```
 
 ## Prerequisites

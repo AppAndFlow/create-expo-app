@@ -54,7 +54,7 @@ async function create(appName) {
       cwd: targetDirectory,
     });
     await fs.copy(
-      path.resolve(__dirname, 'template'),
+      path.resolve(__dirname, '../template'),
       path.resolve(targetDirectory),
     );
     // edit `package.json` to include our scripts
