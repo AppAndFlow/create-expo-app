@@ -1,5 +1,3 @@
-const fontsMap = {};
-const fonts = {};
+export const fontsMap = {};
 
-export { fontsMap };
-export default fonts;
+export default {};
