@@ -41,14 +41,17 @@ const pkgScripts = {
 };
 
 async function create(appName) {
-  const spinner = ora('Creating Expo app');
-
   try {
+    await execa('expo', ['init', '--yarn', '--template', 'blank', appName], {
+      stdio: 'inherit',
+    });
+
     const targetDirectory = path.resolve(process.cwd(), appName);
+    const spinner = ora(
+      'Installing additional dependencies (e.g. Jest, Prettier, TSLint, ...) and setting up project structure',
+    );
 
     spinner.start();
-    await execa('expo', ['init', '--yarn', '--template', 'blank', appName]);
-    spinner.text = 'Installing dependencies and setting up project structure';
     await execa('yarn', ['add', ...dependencies], { cwd: targetDirectory });
     await execa('yarn', ['add', '--dev', ...devDependencies], {
       cwd: targetDirectory,
