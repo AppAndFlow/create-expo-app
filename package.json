@@ -18,7 +18,6 @@
   "dependencies": {
     "commander": "^2.19.0",
     "execa": "^1.0.0",
-    "expo-cli": "2.6.14",
     "fs-extra": "^7.0.1",
     "ora": "^3.0.0"
   }
