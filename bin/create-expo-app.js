@@ -42,9 +42,21 @@ const pkgScripts = {
 
 async function create(appName) {
   try {
-    await execa('expo', ['init', '--yarn', '--template', 'blank', appName], {
-      stdio: 'inherit',
-    });
+    await execa(
+      'expo',
+      [
+        'init',
+        '--yarn',
+        '--template',
+        'blank',
+        '--workflow',
+        'managed',
+        appName,
+      ],
+      {
+        stdio: 'inherit',
+      },
+    );
 
     const targetDirectory = path.resolve(process.cwd(), appName);
     const spinner = ora(
