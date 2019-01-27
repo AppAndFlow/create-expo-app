@@ -47,9 +47,7 @@ async function create(appName) {
     const targetDirectory = path.resolve(process.cwd(), appName);
 
     spinner.start();
-    await execa('expo', ['init', '--yarn', '--template', 'blank', appName], {
-      cwd: path.resolve(__dirname, '..'),
-    });
+    await execa('expo', ['init', '--yarn', '--template', 'blank', appName]);
     spinner.text = 'Installing dependencies and setting up project structure';
     await execa('yarn', ['add', ...dependencies], { cwd: targetDirectory });
     await execa('yarn', ['add', '--dev', ...devDependencies], {
@@ -63,7 +61,6 @@ async function create(appName) {
     const pkg = await fs.readJSON(
       path.resolve(targetDirectory, 'package.json'),
     );
-
     await fs.writeJSON(
       path.resolve(targetDirectory, 'package.json'),
       { ...pkg, scripts: pkgScripts },
