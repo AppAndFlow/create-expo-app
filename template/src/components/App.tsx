@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AppLoading, Font } from 'expo';
+import { AppLoading, Asset, Font } from 'expo';
 
 import { fontsMap } from '../constants/fonts';
 import AppNavigator from './AppNavigator';
@@ -15,13 +15,15 @@ class App extends React.Component<{}, State> {
 
   _loadResources = () => {
     return Promise.all([
+      // @ts-ignore
+      Asset.loadAsync(Object.values(images)),
       Font.loadAsync({
         ...fontsMap,
       }),
     ]) as Promise<any>;
   };
 
-  _handleFinish = () => {
+  _onFinish = () => {
     this.setState({ ready: true });
   };
 
@@ -29,10 +31,7 @@ class App extends React.Component<{}, State> {
     return this.state.ready ? (
       <AppNavigator />
     ) : (
-      <AppLoading
-        startAsync={this._loadResources}
-        onFinish={this._handleFinish}
-      />
+      <AppLoading startAsync={this._loadResources} onFinish={this._onFinish} />
     );
   }
 }

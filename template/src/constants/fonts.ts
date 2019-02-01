@@ -1,3 +1,7 @@
-export const fontsMap = {};
+export const fontsMap = {
+  // apercu_regular_pro: require('../../assets/fonts/apercu_regular_pro.otf'),
+};
 
-export default {};
+export default {
+  // apercuRegularPro: 'apercu_regular_pro',
+};
