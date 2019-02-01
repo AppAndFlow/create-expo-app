@@ -1,24 +1,24 @@
 import { Dimensions, Platform } from 'react-native';
 
-const { width, height } = Dimensions.get('window');
+const { width: windowWidth, height: windowHeight } = Dimensions.get('window');
 const makeHitSlop = (size: number) => ({
   top: size,
   right: size,
   bottom: size,
   left: size,
 });
-const makeCircle = (diameter: number) => ({
-  height: diameter,
-  width: diameter,
-  borderRadius: diameter / 2,
+const makeCircle = (size: number) => ({
+  height: size,
+  width: size,
+  borderRadius: size / 2,
 });
 
 export default {
-  width,
-  height,
+  windowWidth,
+  windowHeight,
   paddingHorizontal: 30,
-  isSmallDevice: width <= 375,
-  isIphoneX: height >= 800,
+  isSmallDevice: windowWidth <= 375,
+  isIphoneX: windowHeight >= 800,
   isIos: Platform.OS === 'ios',
   isAndroid: Platform.OS === 'android',
   makeHitSlop,
