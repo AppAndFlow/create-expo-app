@@ -17,7 +17,7 @@ export default {
   windowWidth,
   windowHeight,
   paddingHorizontal: 30,
-  isSmallDevice: windowWidth <= 375,
+  isSmallDevice: windowWidth < 375,
   isIphoneX: windowHeight >= 800,
   isIos: Platform.OS === 'ios',
   isAndroid: Platform.OS === 'android',
