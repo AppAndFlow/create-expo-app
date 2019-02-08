@@ -35,7 +35,7 @@ const devDependencies = [
 ];
 const pkgScripts = {
   lint: 'tslint --config tslint.json --project tsconfig.json',
-  prettier: "prettier --write './src/**/*'",
+  prettier: "prettier --write 'src/**/*'",
   test: 'jest',
   tsc: 'tsc --noEmit',
 };
