@@ -13,7 +13,7 @@ program
   .action(appName => create(appName))
   .parse(process.argv);
 
-const dependencies = ['react-navigation'];
+const dependencies = ['@appandflow/touchable', 'react-navigation'];
 const devDependencies = [
   '@types/expo',
   '@types/jest',
