@@ -3,6 +3,7 @@ import { AppLoading, Asset, Font } from 'expo';
 
 import { fontsMap } from '../constants/fonts';
 import AppNavigator from './AppNavigator';
+import images from '../constants/images';
 
 interface State {
   ready: boolean;
