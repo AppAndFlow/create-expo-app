@@ -9,24 +9,24 @@ import {
 
 import colors from '../../constants/colors';
 
-interface P {
+interface Props {
   children: React.ReactNode;
   style?: StyleProp<TextStyle>;
 }
 
-const TextSmall = ({ style, children, ...props }: P & TextProps) => (
+const TextSmall = ({ style, children, ...props }: Props & TextProps) => (
   <Text style={[styles.small, style]} {...props}>
     {children}
   </Text>
 );
 
-const TextNormal = ({ style, children, ...props }: P & TextProps) => (
+const TextNormal = ({ style, children, ...props }: Props & TextProps) => (
   <Text style={[styles.normal, style]} {...props}>
     {children}
   </Text>
 );
 
-const TextLarge = ({ style, children, ...props }: P & TextProps) => (
+const TextLarge = ({ style, children, ...props }: Props & TextProps) => (
   <Text style={[styles.large, style]} {...props}>
     {children}
   </Text>
