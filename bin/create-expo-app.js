@@ -32,6 +32,7 @@ const devDependencies = [
   'prettier',
   'react-native-testing-library',
   'react-test-renderer',
+  'react',
   'ts-jest',
   'typescript',
 ];
