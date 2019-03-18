@@ -14,19 +14,19 @@ interface Props {
   style?: StyleProp<TextStyle>;
 }
 
-const TextSmall = ({ style, children, ...props }: Props & TextProps) => (
+const TextSmall = ({ children, style, ...props }: Props & TextProps) => (
   <Text style={[styles.small, style]} {...props}>
     {children}
   </Text>
 );
 
-const TextNormal = ({ style, children, ...props }: Props & TextProps) => (
+const TextNormal = ({ children, style, ...props }: Props & TextProps) => (
   <Text style={[styles.normal, style]} {...props}>
     {children}
   </Text>
 );
 
-const TextLarge = ({ style, children, ...props }: Props & TextProps) => (
+const TextLarge = ({ children, style, ...props }: Props & TextProps) => (
   <Text style={[styles.large, style]} {...props}>
     {children}
   </Text>

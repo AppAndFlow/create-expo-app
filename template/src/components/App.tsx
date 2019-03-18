@@ -16,7 +16,6 @@ class App extends React.Component<{}, State> {
 
   _loadResources = () => {
     return Promise.all([
-      // @ts-ignore
       Asset.loadAsync(Object.values(images)),
       Font.loadAsync({
         ...fontsMap,
