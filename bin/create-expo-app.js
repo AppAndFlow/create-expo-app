@@ -36,10 +36,10 @@ const devDependencies = [
   'typescript',
 ];
 const pkgScripts = {
-  lint: "eslint 'src/**/*'",
-  prettier: "prettier --write 'src/**/*'",
+  lint: 'eslint . --ext .js,.jsx,.ts,.tsx',
+  prettier: "prettier --write '**/*'",
   test: 'jest',
-  tsc: 'tsc --noEmit',
+  tsc: 'tsc',
 };
 
 async function create(appName) {
@@ -76,8 +76,7 @@ async function create(appName) {
     spinner.succeed();
   } catch (e) {
     spinner.fail();
-    console.log('Something went wrong!');
-    console.log(e.stderr || e);
+    console.error(e.stderr || e);
     process.exit(1);
   }
 }
