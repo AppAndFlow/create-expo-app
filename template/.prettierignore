@@ -3,4 +3,5 @@
 .expo
 .gitignore
 .prettierignore
+.watchmanconfig
 assets
