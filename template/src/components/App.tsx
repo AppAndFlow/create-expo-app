@@ -1,22 +1,15 @@
-import * as React from 'react';
+import React from 'react';
 import { AppLoading, Asset, Font } from 'expo';
 
 import { fontsMap } from '../constants/fonts';
 import AppNavigator from './AppNavigator';
 import images from '../constants/images';
 
-interface State {
-  ready: boolean;
-}
+const App = () => {
+  const [ready, setReady] = React.useState(false);
 
-class App extends React.Component<{}, State> {
-  state = {
-    ready: false,
-  };
-
-  _loadResources = () => {
+  const loadResources = () => {
     return Promise.all([
-      // @ts-ignore
       Asset.loadAsync(Object.values(images)),
       Font.loadAsync({
         ...fontsMap,
@@ -24,17 +17,13 @@ class App extends React.Component<{}, State> {
     ]) as Promise<any>;
   };
 
-  _onFinish = () => {
-    this.setState({ ready: true });
-  };
+  const onFinish = () => setReady(true);
 
-  render() {
-    return this.state.ready ? (
-      <AppNavigator />
-    ) : (
-      <AppLoading startAsync={this._loadResources} onFinish={this._onFinish} />
-    );
-  }
-}
+  return ready ? (
+    <AppNavigator />
+  ) : (
+    <AppLoading startAsync={loadResources} onFinish={onFinish} />
+  );
+};
 
 export default App;
