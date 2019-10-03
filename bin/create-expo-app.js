@@ -13,7 +13,7 @@ program
   .action(create)
   .parse(process.argv);
 
-const dependencies = ['@appandflow/touchable', 'react-navigation'];
+const dependencies = ['react-native-kondo'];
 const devDependencies = [
   '@types/expo',
   '@types/jest',
@@ -35,6 +35,12 @@ const devDependencies = [
   'ts-jest',
   'typescript',
 ];
+const expoDependencies = [
+  'react-navigation',
+  'react-native-gesture-handler',
+  'react-native-reanimated',
+  'react-native-screens',
+];
 const pkgScripts = {
   lint: 'eslint . --ext .js,.jsx,.ts,.tsx',
   prettier: "prettier --write '**/*'",
@@ -42,7 +48,7 @@ const pkgScripts = {
   tsc: 'tsc',
 };
 
-async function create(appName) {
+const create = async appName => {
   try {
     await execa('expo', ['init', '--npm', '--template', 'blank', appName], {
       stdio: 'inherit',
@@ -56,6 +62,9 @@ async function create(appName) {
     spinner.start();
     await execa('npm', ['i', ...dependencies], { cwd: targetDirectory });
     await execa('npm', ['i', '-D', ...devDependencies], {
+      cwd: targetDirectory,
+    });
+    await execa('expo', ['install', ...expoDependencies], {
       cwd: targetDirectory,
     });
     await fs.copy(
@@ -79,4 +88,4 @@ async function create(appName) {
     console.error(e.stderr || e);
     process.exit(1);
   }
-}
+};
