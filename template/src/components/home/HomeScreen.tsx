@@ -1,28 +1,14 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Box, Text } from 'react-native-kondo';
 
-import { TextNormal } from '../common/Typography';
+const HomeScreen = () => (
+  <Box flex={1} justifyContent="center" alignItems="center">
+    <Text fontSize={3}>Edit HomeScreen.tsx</Text>
+  </Box>
+);
 
-class HomeScreen extends React.Component {
-  static navigationOptions = {
-    header: null,
-  };
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <TextNormal>Edit HomeScreen.tsx</TextNormal>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+HomeScreen.navigationOptions = {
+  header: null,
+};
 
 export default HomeScreen;

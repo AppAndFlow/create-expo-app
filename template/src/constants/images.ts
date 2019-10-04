@@ -1,3 +1,3 @@
 export default {
-  // arrowLeft: require('../../assets/images/arrowLeft.png'),
+  // close: require('../../assets/images/close.png'),
 };

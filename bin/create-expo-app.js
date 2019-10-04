@@ -13,7 +13,7 @@ program
   .action(create)
   .parse(process.argv);
 
-const dependencies = ['react-native-kondo'];
+const dependencies = ['react-native-kondo', 'react-navigation-stack'];
 const devDependencies = [
   '@types/expo',
   '@types/jest',
@@ -40,15 +40,19 @@ const expoDependencies = [
   'react-native-gesture-handler',
   'react-native-reanimated',
   'react-native-screens',
+  'expo-asset',
+  'expo-font',
+  'expo-constants',
 ];
-const pkgScripts = {
+const scripts = {
   lint: 'eslint . --ext .js,.jsx,.ts,.tsx',
   prettier: "prettier --write '**/*'",
+  start: 'expo start',
   test: 'jest',
   tsc: 'tsc',
 };
 
-const create = async appName => {
+async function create(appName) {
   try {
     await execa('expo', ['init', '--npm', '--template', 'blank', appName], {
       stdio: 'inherit',
@@ -60,11 +64,11 @@ const create = async appName => {
     );
 
     spinner.start();
-    await execa('npm', ['i', ...dependencies], { cwd: targetDirectory });
-    await execa('npm', ['i', '-D', ...devDependencies], {
+    await execa('expo', ['install', ...expoDependencies], {
       cwd: targetDirectory,
     });
-    await execa('expo', ['install', ...expoDependencies], {
+    await execa('npm', ['i', ...dependencies], { cwd: targetDirectory });
+    await execa('npm', ['i', '-D', ...devDependencies], {
       cwd: targetDirectory,
     });
     await fs.copy(
@@ -78,7 +82,7 @@ const create = async appName => {
 
     await fs.writeJSON(
       path.resolve(targetDirectory, 'package.json'),
-      { ...pkg, scripts: pkgScripts },
+      { ...pkg, scripts },
       { spaces: 2 },
     );
     spinner.text = 'Done!';
@@ -88,4 +92,4 @@ const create = async appName => {
     console.error(e.stderr || e);
     process.exit(1);
   }
-};
+}
