@@ -21,6 +21,7 @@ npx https://github.com/AppAndFlow/create-expo-app <app-name>
 - Jest
 - React Navigation
 - react-native-testing-library
+- react-native-kondo
 - A minimal project structure
 
 ## App & Flow's guides
