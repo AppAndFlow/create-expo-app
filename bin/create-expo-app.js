@@ -86,7 +86,6 @@ async function create(appName) {
       { ...pkg, scripts },
       { spaces: 2 },
     );
-    await execa.node('prettier', execaOpts);
     console.log('Done!');
   } catch (e) {
     console.error(e.stderr || e);
