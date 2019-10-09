@@ -37,13 +37,14 @@ const devDependencies = [
   'typescript',
 ];
 const expoDependencies = [
-  'react-navigation',
+  'expo-asset',
+  'expo-constants',
+  'expo-constants',
+  'expo-font',
   'react-native-gesture-handler',
   'react-native-reanimated',
   'react-native-screens',
-  'expo-asset',
-  'expo-font',
-  'expo-constants',
+  'react-navigation',
 ];
 const scripts = {
   lint: 'eslint . --ext .js,.jsx,.ts,.tsx',

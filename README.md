@@ -22,8 +22,5 @@ npx https://github.com/AppAndFlow/create-expo-app <app-name>
 - React Navigation
 - react-native-testing-library
 - react-native-kondo
+- Environment variables script
 - A minimal project structure
-
-## App & Flow's guides
-
-- [Deploy a dockerized Node.js project on AWS](https://docs.google.com/document/d/1nUL_zMvkNROrDVArjI02vWWp5FstCHyhkKndKukECuk/edit?usp=sharing)
