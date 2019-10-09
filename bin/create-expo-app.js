@@ -25,6 +25,7 @@ const devDependencies = [
   '@typescript-eslint/parser',
   'eslint-config-prettier',
   'eslint-plugin-import',
+  'eslint-plugin-react-hooks',
   'eslint-plugin-react',
   'eslint',
   'jest-expo',
