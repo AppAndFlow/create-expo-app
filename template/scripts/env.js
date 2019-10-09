@@ -14,7 +14,9 @@ const merge = require('lodash.merge');
         ios: {},
         android: {},
         extra: {
-          env: {},
+          env: {
+            name: 'dev',
+          },
         },
       },
     },
@@ -23,7 +25,9 @@ const merge = require('lodash.merge');
         ios: {},
         android: {},
         extra: {
-          env: {},
+          env: {
+            name: 'prod',
+          },
         },
       },
     },
