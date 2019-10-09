@@ -4,7 +4,6 @@ const path = require('path');
 const fs = require('fs-extra');
 const program = require('commander');
 const execa = require('execa');
-const ora = require('ora');
 
 program
   .version('1.0.0')
@@ -28,6 +27,7 @@ const devDependencies = [
   'eslint-plugin-react-hooks',
   'eslint-plugin-react',
   'eslint',
+  'fs-extra',
   'jest-expo',
   'jest-fetch-mock',
   'jest',
@@ -58,23 +58,20 @@ const scripts = {
 
 async function create(appName) {
   try {
-    await execa('expo', ['init', '--npm', '--template', 'blank', appName], {
-      stdio: 'inherit',
-    });
-
     const targetDirectory = path.resolve(process.cwd(), appName);
-    const spinner = ora(
-      'Installing additional dependencies (e.g. Jest, Prettier, ESLint, TypeScript type definitions, ...) and setting up project structure',
-    );
+    const execaOpts = { stdio: 'inherit', cwd: targetDirectory };
 
-    spinner.start();
-    await execa('expo', ['install', ...expoDependencies], {
-      cwd: targetDirectory,
+    await execa('expo', ['init', '--npm', '--template', 'blank', appName], {
+      ...execaOpts,
+      cwd: process.cwd(),
     });
-    await execa('npm', ['i', ...dependencies], { cwd: targetDirectory });
-    await execa('npm', ['i', '-D', ...devDependencies], {
-      cwd: targetDirectory,
-    });
+    console.log(
+      'Installing additional dependencies... (e.g. TypeScript, ESLint, Prettier, Jest)',
+    );
+    await execa('expo', ['install', ...expoDependencies], execaOpts);
+    await execa('npm', ['i', ...dependencies], execaOpts);
+    await execa('npm', ['i', '-D', ...devDependencies], execaOpts);
+    console.log('Setting up project structure...');
     await fs.copy(
       path.resolve(__dirname, '../template'),
       path.resolve(targetDirectory),
@@ -89,10 +86,9 @@ async function create(appName) {
       { ...pkg, scripts },
       { spaces: 2 },
     );
-    spinner.text = 'Done!';
-    spinner.succeed();
+    await execa.node('prettier', execaOpts);
+    console.log('Done!');
   } catch (e) {
-    spinner.fail();
     console.error(e.stderr || e);
     process.exit(1);
   }

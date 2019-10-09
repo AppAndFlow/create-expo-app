@@ -16,9 +16,8 @@
   },
   "homepage": "https://github.com/AppAndFlow/create-expo-app#readme",
   "dependencies": {
-    "commander": "^2.20.0",
-    "execa": "^1.0.0",
-    "fs-extra": "^7.0.1",
-    "ora": "^3.4.0"
+    "commander": "^3.0.2",
+    "execa": "^2.1.0",
+    "fs-extra": "^8.1.0"
   }
 }
