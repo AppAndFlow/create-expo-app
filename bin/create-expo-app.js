@@ -29,6 +29,7 @@ const devDependencies = [
   'jest-expo',
   'jest-fetch-mock',
   'jest',
+  'lodash.merge',
   'prettier',
   'react-native-testing-library',
   'react-test-renderer',
