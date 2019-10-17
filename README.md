@@ -22,7 +22,7 @@ npx https://github.com/AppAndFlow/create-expo-app <app-name>
 - Prettier
 - Jest
 - React Navigation
-- Preloading & caching of assets on app startup
+- Preloading & caching of local assets on app startup
 - Environment variables script
 - react-native-testing-library
 - react-native-kondo
