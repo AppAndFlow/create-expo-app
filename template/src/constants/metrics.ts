@@ -15,7 +15,6 @@ const createCircle = (diameter: number) => ({
 });
 
 export default {
-  headerHeight: 110,
   isAndroid: Platform.OS === 'android',
   isIos: Platform.OS === 'ios',
   isIphoneX:
@@ -24,7 +23,6 @@ export default {
   createCircle,
   createHitSlop,
   statusBarHeight: Constants.statusBarHeight,
-  tabBarHeight: 60,
   windowHeight,
   windowWidth,
 };
