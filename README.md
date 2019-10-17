@@ -1,6 +1,8 @@
 # create-expo-app
 
-A somewhat opinionated way to create React Native apps using Expo
+A somewhat opinionated way to create React Native apps using Expo.
+
+Initializes an Expo app, provides a reasonable set of rules & configuration, installs and ensures tooling & developer dependencies (e.g. TypeScript, ESLint, Prettier, Jest, ...) work well together and finally, lays out a basic project structure.
 
 ## Usage
 
@@ -20,7 +22,8 @@ npx https://github.com/AppAndFlow/create-expo-app <app-name>
 - Prettier
 - Jest
 - React Navigation
+- Preloading & caching of assets on app startup
+- Environment variables script
 - react-native-testing-library
 - react-native-kondo
-- Environment variables script
 - A minimal project structure
