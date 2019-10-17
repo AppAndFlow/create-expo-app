@@ -64,9 +64,7 @@ async function create(appName) {
       ...execaOpts,
       cwd: process.cwd(),
     });
-    console.log(
-      'Installing additional dependencies... (e.g. TypeScript, ESLint, Prettier, Jest)',
-    );
+    console.log('Installing additional dependencies...');
     await execa('expo', ['install', ...expoDependencies], execaOpts);
     await execa('npm', ['i', ...dependencies], execaOpts);
     await execa('npm', ['i', '-D', ...devDependencies], execaOpts);
