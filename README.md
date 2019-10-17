@@ -2,7 +2,7 @@
 
 A somewhat opinionated way to create React Native apps using Expo.
 
-Initializes an Expo app, provides a reasonable set of rules & configuration, installs and ensures tooling & developer dependencies (e.g. TypeScript, ESLint, Prettier, Jest, ...) work well together and finally, lays out a basic project structure.
+It provides configuration and a reasonable set of rules, it ensures that tooling and developer dependencies work well together (e.g. TypeScript, ESLint, Prettier, Jest, ...), and lastly, it creates a basic project structure.
 
 ## Usage
 
