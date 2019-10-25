@@ -9,7 +9,7 @@
     "type": "git",
     "url": "git+https://github.com/AppAndFlow/create-expo-app.git"
   },
-  "author": "Samuel Chamberland",
+  "author": "AppAndFlow",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/AppAndFlow/create-expo-app/issues"
