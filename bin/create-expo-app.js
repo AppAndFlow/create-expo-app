@@ -14,7 +14,6 @@ program
 
 const dependencies = ['react-native-kondo', 'react-navigation-stack'];
 const devDependencies = [
-  '@types/expo',
   '@types/jest',
   '@types/react-native',
   '@types/react-navigation',
