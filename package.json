@@ -19,5 +19,8 @@
     "commander": "^3.0.2",
     "execa": "^2.1.0",
     "fs-extra": "^8.1.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2"
   }
 }
