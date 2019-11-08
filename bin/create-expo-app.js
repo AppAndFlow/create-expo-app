@@ -7,7 +7,7 @@ const execa = require('execa');
 
 program
   .version('1.0.0')
-  .usage('<app-name>')
+  .usage('[options] <app-name>')
   .arguments('<app-name>')
   .action(create)
   .parse(process.argv);
@@ -58,11 +58,13 @@ async function create(appName) {
   try {
     const targetDirectory = path.resolve(process.cwd(), appName);
     const execaOpts = { stdio: 'inherit', cwd: targetDirectory };
+    const forwardedOpts = process.argv.slice(2, -1);
 
-    await execa('expo', ['init', '--npm', '--template', 'blank', appName], {
-      ...execaOpts,
-      cwd: process.cwd(),
-    });
+    await execa(
+      'expo',
+      ['init', '--npm', '--template', 'blank', ...forwardedOpts, appName],
+      { ...execaOpts, cwd: process.cwd() },
+    );
     console.log('Installing additional dependencies...');
     await execa('expo', ['install', ...expoDependencies], execaOpts);
     await execa('npm', ['i', ...dependencies], execaOpts);
