@@ -5,11 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: install
-        run: npm ci
-      - name: lint
-        run: npm run lint
-      - name: tsc
-        run: npm run tsc
-      - name: test
-        run: CI=true npm test
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run tsc
+      - run: npm test
+        env:
+          CI: true
