@@ -26,5 +26,5 @@ npx https://github.com/AppAndFlow/create-expo-app <app-name>
 - react-native-kondo
 - Preloading & caching of local assets on app startup
 - Environment variables script
-- CI workflow (via GitHub Actions) to lint, typecheck & test
+- CI workflow (via GitHub Actions) to lint, type check & test
 - Minimal project structure
