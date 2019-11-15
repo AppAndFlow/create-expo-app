@@ -16,7 +16,6 @@ const dependencies = ['react-native-kondo', 'react-navigation-stack'];
 const devDependencies = [
   '@types/jest',
   '@types/react-native',
-  '@types/react-navigation',
   '@types/react-test-renderer',
   '@types/react',
   '@typescript-eslint/eslint-plugin',
