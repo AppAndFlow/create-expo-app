@@ -12,7 +12,6 @@ const App = () => {
 
   const loadResources = () => {
     return Promise.all([
-      // @ts-ignore
       Asset.loadAsync(Object.values(images)),
       Font.loadAsync({
         ...fontsMap,
